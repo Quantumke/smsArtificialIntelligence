@@ -5,6 +5,7 @@ from processing.models import *
 from processing.forms import *
 from processing.functions import get_message
 from processing.functions import sms
+from processing.functions import salutations
 # Create your views here.
 def sendsms(request):
     context = RequestContext(request)
@@ -12,6 +13,7 @@ def sendsms(request):
     if request.method =='POST':
         data={}
         get_message.GetMessage.run(request,data)
+        salutations.Salutations.run(request,data)
         sms.Sms.run(data)
         return HttpResponseRedirect('/')
     return render(request,

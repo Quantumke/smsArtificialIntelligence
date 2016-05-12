@@ -7,6 +7,9 @@ class Sms():
         message=message.message
         response= twiml.Response()
         body=message
-        response.message("You sent me: {0}".format(body))
-        a=response.message("You sent me: {0}".format(body))
+        greetings=data.get('greetings')
+        #print(greetings)
+        #response.message("message: {0}".format(body))
+        #a=response.message("message: {0}".format(body))
+        a=response.message(greetings)
         print(a)
