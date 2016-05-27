@@ -7,9 +7,13 @@ class Sms():
         message=message.message
         response= twiml.Response()
         body=message
-        greetings=data.get('greetings')
-        #print(greetings)
-        #response.message("message: {0}".format(body))
-        #a=response.message("message: {0}".format(body))
-        a=response.message(greetings)
-        print(a)
+        if message=="Hello":
+            greetings=data.get('greetings')
+            #print(greetings)
+            #response.message("message: {0}".format(body))
+            #a=response.message("message: {0}".format(body))
+            response.message(greetings)
+            a=response.message(greetings)
+            print(a)
+        else:
+            print ("Text help to use this service")
